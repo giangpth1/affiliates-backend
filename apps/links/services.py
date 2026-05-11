@@ -94,7 +94,7 @@ class LinkService:
         try:
             payload = {'link_id': link_id, 'url': url}
             headers = {'x-functions-key': settings.FUNCTION_APP_KEY}
-            with httpx.Client(timeout=5) as client:  # Increased from 3s to 5s
+            with httpx.Client(timeout=90) as client:  # Increased to 90s for HTTP scraping fallback
                 response = client.post(
                     f"{function_url}/api/scrape_product",
                     json=payload,
