@@ -1005,7 +1005,7 @@ class SearchController extends Controller
                  style="width: 40px; height: 40px; background: var(--color-primary);">
                 <i class="bi bi-bag-fill text-white"></i>
             </div>
-            <span class="fw-bold fs-5 text-dark">Shopee Aff</span>
+            <span class="fw-bold fs-5 text-dark">Shopee Affiliate</span>
         </a>
     </div>
     
@@ -1074,7 +1074,7 @@ class SearchController extends Controller
                  style="width: 32px; height: 32px; background: var(--color-primary);">
                 <i class="bi bi-bag-fill text-white"></i>
             </div>
-            <span class="fw-bold text-dark">Shopee Aff</span>
+            <span class="fw-bold text-dark">Shopee Affiliate</span>
         </a>
         
         <!-- Menu Button -->

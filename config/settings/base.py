@@ -120,11 +120,12 @@ AZURE_SEARCH_ENDPOINT = env('AZURE_SEARCH_ENDPOINT', default='')
 AZURE_SEARCH_KEY = env('AZURE_SEARCH_KEY', default='')
 AZURE_SEARCH_INDEX = env('AZURE_SEARCH_INDEX', default='products')
 
-# Azure Function
-FUNCTION_APP_URL = env('FUNCTION_APP_URL', default='')
-FUNCTION_APP_KEY = env('FUNCTION_APP_KEY', default='')
+# Shopee Affiliate Open API
+SHOPEE_APP_ID = env('SHOPEE_APP_ID', default='')
+SHOPEE_SECRET = env('SHOPEE_SECRET', default='')
 
-# Link Processing Mode
-# True: Async processing (return immediately, process in background) - RECOMMENDED for production
-# False: Sync processing (wait for scraping to complete) - Only for testing
-ASYNC_LINK_PROCESSING = env.bool('ASYNC_LINK_PROCESSING', default=True)
+# Azure OpenAI (RAG embeddings)
+AZURE_OPENAI_ENDPOINT = env('AZURE_OPENAI_ENDPOINT', default='')
+AZURE_OPENAI_API_KEY = env('AZURE_OPENAI_API_KEY', default='')
+AZURE_OPENAI_API_VERSION = env('AZURE_OPENAI_API_VERSION', default='2024-02-01')
+AZURE_OPENAI_EMBEDDING_DEPLOYMENT = env('AZURE_OPENAI_EMBEDDING_DEPLOYMENT', default='')
