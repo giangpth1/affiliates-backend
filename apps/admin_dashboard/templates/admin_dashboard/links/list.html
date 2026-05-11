@@ -1,0 +1,97 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block title %}Links{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4>Links</h4>
+    <span class="text-muted">{{ total }} links</span>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="GET" class="row g-2">
+            <div class="col-md-3">
+                {{ form.status }}
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+            {% if form.status.value %}
+            <div class="col-auto">
+                <a href="{% url 'admin_dashboard:links' %}" class="btn btn-outline-secondary">Clear</a>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>URL</th>
+                    <th>User ID</th>
+                    <th>Status</th>
+                    <th>Product ID</th>
+                    <th>Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for link in links %}
+                <tr>
+                    <td class="text-truncate" style="max-width: 300px;">
+                        <a href="{{ link.original_url }}" target="_blank">{{ link.original_url }}</a>
+                    </td>
+                    <td><code>{{ link.user_id }}</code></td>
+                    <td>
+                        {% if link.status == 'pending' %}
+                            <span class="badge bg-warning">Pending</span>
+                        {% elif link.status == 'processing' %}
+                            <span class="badge bg-info">Processing</span>
+                        {% elif link.status == 'done' %}
+                            <span class="badge bg-success">Done</span>
+                        {% elif link.status == 'failed' %}
+                            <span class="badge bg-danger">Failed</span>
+                        {% else %}
+                            <span class="badge bg-secondary">{{ link.status }}</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if link.product_id %}
+                            <code>{{ link.product_id|slice:":8" }}...</code>
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td><small class="text-muted">{{ link.created_at|slice:":10" }}</small></td>
+                    <td>
+                        <a href="{% url 'admin_dashboard:link_detail' link.user_id link.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="6" class="text-center py-4 text-muted">No links found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% if total_pages > 1 %}
+<nav class="mt-3">
+    <ul class="pagination justify-content-center">
+        {% for p in "x"|rjust:total_pages %}
+        {% with forloop.counter as pn %}
+        <li class="page-item {% if pn == page %}active{% endif %}">
+            <a class="page-link" href="?page={{ pn }}{% if form.status.value %}&status={{ form.status.value }}{% endif %}">{{ pn }}</a>
+        </li>
+        {% endwith %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}

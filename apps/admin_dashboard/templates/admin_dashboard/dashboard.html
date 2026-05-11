@@ -1,0 +1,122 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h4 class="mb-4">Dashboard</h4>
+
+<div class="row g-4">
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-muted">Total Users</h6>
+                        <h3>{{ stats.total_users }}</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-people fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-muted">Total Products</h6>
+                        <h3>{{ stats.total_products }}</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-box-seam fs-1 text-muted"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card" style="border-left-color: #28a745;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-muted">Links Done</h6>
+                        <h3>{{ stats.links.done }}</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-check-circle fs-1 text-success"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 col-lg-3">
+        <div class="card stat-card" style="border-left-color: #dc3545;">
+            <div class="card-body">
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <h6 class="text-muted">Links Failed</h6>
+                        <h3>{{ stats.links.failed }}</h3>
+                    </div>
+                    <div class="align-self-center">
+                        <i class="bi bi-x-circle fs-1 text-danger"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row g-4 mt-2">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Links Status</h6>
+            </div>
+            <div class="card-body">
+                <table class="table table-sm mb-0">
+                    <tr>
+                        <td><span class="badge bg-warning">Pending</span></td>
+                        <td class="text-end">{{ stats.links.pending }}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-info">Processing</span></td>
+                        <td class="text-end">{{ stats.links.processing }}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-success">Done</span></td>
+                        <td class="text-end">{{ stats.links.done }}</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge bg-danger">Failed</span></td>
+                        <td class="text-end">{{ stats.links.failed }}</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">Quick Actions</h6>
+            </div>
+            <div class="card-body">
+                <a href="{% url 'admin_dashboard:users' %}" class="btn btn-outline-primary mb-2 w-100">
+                    <i class="bi bi-people me-1"></i>Manage Users
+                </a>
+                <a href="{% url 'admin_dashboard:products' %}" class="btn btn-outline-primary mb-2 w-100">
+                    <i class="bi bi-box-seam me-1"></i>Manage Products
+                </a>
+                <a href="{% url 'admin_dashboard:links' %}?status=failed" class="btn btn-outline-danger w-100">
+                    <i class="bi bi-exclamation-triangle me-1"></i>View Failed Links
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

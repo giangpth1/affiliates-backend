@@ -1,0 +1,91 @@
+{% extends 'admin_dashboard/base.html' %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4>Products</h4>
+    <span class="text-muted">{{ total }} products</span>
+</div>
+
+<div class="card mb-3">
+    <div class="card-body">
+        <form method="GET" class="row g-2">
+            <div class="col-md-4">
+                {{ form.shop_id }}
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary">Filter</button>
+            </div>
+            {% if form.shop_id.value %}
+            <div class="col-auto">
+                <a href="{% url 'admin_dashboard:products' %}" class="btn btn-outline-secondary">Clear</a>
+            </div>
+            {% endif %}
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="table-responsive">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr>
+                    <th>Thumbnail</th>
+                    <th>Title</th>
+                    <th>Shop ID</th>
+                    <th>Item ID</th>
+                    <th>Price</th>
+                    <th>Created</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for product in products %}
+                <tr>
+                    <td>
+                        {% if product.thumbnail_url %}
+                            <img src="{{ product.thumbnail_url }}" alt="" style="width: 48px; height: 48px; object-fit: cover; border-radius: 4px;">
+                        {% else %}
+                            <div style="width: 48px; height: 48px; background: #e9ecef; border-radius: 4px;"></div>
+                        {% endif %}
+                    </td>
+                    <td style="max-width: 300px;" class="text-truncate">{{ product.title }}</td>
+                    <td><code>{{ product.shop_id }}</code></td>
+                    <td><code>{{ product.item_id }}</code></td>
+                    <td>
+                        {% if product.price %}
+                            {{ product.price|floatformat:0 }} {{ product.price_currency }}
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
+                    <td><small class="text-muted">{{ product.created_at|slice:":10" }}</small></td>
+                    <td>
+                        <a href="{% url 'admin_dashboard:product_detail' product.shop_id product.id %}" class="btn btn-sm btn-outline-primary">View</a>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="7" class="text-center py-4 text-muted">No products found.</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+
+{% if total_pages > 1 %}
+<nav class="mt-3">
+    <ul class="pagination justify-content-center">
+        {% for p in "x"|rjust:total_pages %}
+        {% with forloop.counter as pn %}
+        <li class="page-item {% if pn == page %}active{% endif %}">
+            <a class="page-link" href="?page={{ pn }}{% if form.shop_id.value %}&shop_id={{ form.shop_id.value }}{% endif %}">{{ pn }}</a>
+        </li>
+        {% endwith %}
+        {% endfor %}
+    </ul>
+</nav>
+{% endif %}
+{% endblock %}
