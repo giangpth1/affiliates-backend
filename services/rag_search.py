@@ -176,9 +176,11 @@ class RagSearchService:
                 select=["id", "title", "thumbnail_url", "original_url", "price", "shop_name", "created_at"],
             )
 
+            MIN_SCORE = 0.02
             return [
                 {**dict(r), 'score': r['@search.score'], 'highlights': {}}
                 for r in results
+                if r['@search.score'] >= MIN_SCORE
             ]
 
         except Exception as e:
