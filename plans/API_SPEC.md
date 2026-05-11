@@ -4,7 +4,7 @@ version: 1.0.0
 updated: 2026-05-06
 ---
 
-# API Specification — Shopee Aff Link Manager
+# API Specification — Shopee Affiliate Link Manager
 
 Base URL: `https://app-shopee-aff-dev.azurewebsites.net/api`
 Local URL: `http://localhost:8000/api`

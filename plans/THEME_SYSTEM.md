@@ -480,7 +480,7 @@ class MyApp extends ConsumerWidget {
     final themeMode = ref.watch(themeProvider);
     
     return MaterialApp(
-      title: 'Shopee Aff Manager',
+      title: 'Shopee Affiliate Manager',
       theme: AppTheme.light,
       darkTheme: AppTheme.dark,
       themeMode: themeMode == ThemeMode.system

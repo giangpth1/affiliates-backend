@@ -172,7 +172,7 @@ Vào Web App → **Settings** → **Environment variables**:
 
 | Key | Value |
 |---|---|
-| `APP_NAME` | `Shopee Aff Manager` |
+| `APP_NAME` | `Shopee Affiliate Manager` |
 | `APP_ENV` | `production` |
 | `APP_KEY` | `base64:...` (generate với `php artisan key:generate --show`) |
 | `APP_DEBUG` | `false` |

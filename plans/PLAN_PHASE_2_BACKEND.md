@@ -2037,7 +2037,7 @@ class User(BaseDocument):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Admin{% endblock %} - Shopee Aff Manager</title>
+    <title>{% block title %}Admin{% endblock %} - Shopee Affiliate Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <style>
@@ -2294,7 +2294,7 @@ class User(BaseDocument):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login - Shopee Aff Manager</title>
+    <title>Admin Login - Shopee Affiliate Manager</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body { background: #f8f9fa; }
@@ -2315,7 +2315,7 @@ class User(BaseDocument):
             <div class="card-body p-4">
                 <div class="text-center mb-4">
                     <h4>Admin Login</h4>
-                    <p class="text-muted">Shopee Aff Manager</p>
+                    <p class="text-muted">Shopee Affiliate Manager</p>
                 </div>
 
                 {% if messages %}

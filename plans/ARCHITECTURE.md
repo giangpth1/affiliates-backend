@@ -4,7 +4,7 @@ version: 1.0.0
 updated: 2026-05-06
 ---
 
-# System Architecture — Shopee Aff Link Manager
+# System Architecture — Shopee Affiliate Link Manager
 
 ## Overview
 

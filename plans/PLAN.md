@@ -4,7 +4,7 @@ version: 1.1.0
 updated: 2026-05-08
 ---
 
-# Master Plan — Shopee Aff Link Manager
+# Master Plan — Shopee Affiliate Link Manager
 
 ## Project Summary
 

@@ -230,7 +230,7 @@ class ShopeeAffApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'Shopee Aff Manager',
+      title: 'Shopee Affiliate Manager',
       theme: AppTheme.light,
       routerConfig: appRouter,
     );

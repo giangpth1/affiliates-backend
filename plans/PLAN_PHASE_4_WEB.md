@@ -115,7 +115,7 @@ frontend/
 
 **`.env`**:
 ```env
-APP_NAME="Shopee Aff Manager"
+APP_NAME="Shopee Affiliate Manager"
 APP_ENV=local
 APP_KEY=base64:...
 APP_DEBUG=true
@@ -919,7 +919,7 @@ class SearchController extends Controller
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'Shopee Aff Manager')</title>
+    <title>@yield('title', 'Shopee Affiliate Manager')</title>
     
     <!-- Bootstrap 5 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -977,7 +977,7 @@ class SearchController extends Controller
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', 'Đăng nhập') - Shopee Aff Manager</title>
+    <title>@yield('title', 'Đăng nhập') - Shopee Affiliate Manager</title>
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
