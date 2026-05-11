@@ -2,7 +2,8 @@ from .base import *
 
 DEBUG = False
 
-SECURE_SSL_REDIRECT = True
+# Azure App Service already handles SSL
+# SECURE_SSL_REDIRECT = True
 SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 SECURE_HSTS_PRELOAD = True
